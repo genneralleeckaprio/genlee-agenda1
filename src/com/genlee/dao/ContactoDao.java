@@ -71,5 +71,39 @@ public class ContactoDao {
 		}
 		
 	}
+	
+	public void actualiza(Contacto contacto) {
+		String sql = "update agenda set nome=?, email=?, endereco=?," +
+					"dataNascimento=?, telefone=? where id=?";
+		
+		try{
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setString(1, contacto.getNome());
+			stmt.setString(2, contacto.getEmail());
+			stmt.setString(3, contacto.getEndereco());
+			stmt.setDate(4, new Date(contacto.getDataNascimento().getTimeInMillis()));
+			stmt.setLong(5, contacto.getTelefone());
+			stmt.setLong(6, contacto.getId());
+			
+			stmt.execute();
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void remove (Contacto contacto) {
+		try{
+			PreparedStatement stmt = connection.prepareStatement("delete " + 
+					"from agenda where id=?");
+			stmt.setLong(1, contacto.getId());
+			stmt.execute();
+			stmt.close();
+			connection.close();
+		} catch (SQLException e){
+			throw new RuntimeException(e);
+		}
+	}
 
 }
