@@ -5,15 +5,16 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-
-	public Connection getConnection() {
-
+	
+	public Connection getConnection() throws SQLException {
+		System.out.println("conectando ....");
 		try {
-			return DriverManager.getConnection("jdbc:mysql://localhost/genleeagenda1", "root", "root");
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			throw new SQLException(e);
 		}
+			return DriverManager.getConnection("jdbc:mysql://localhost/genleeagenda1", "root", "root");
 	}
-
 }
+
+

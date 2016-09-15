@@ -17,7 +17,11 @@ public class ContactoDao {
 	private Connection connection;
 
 	public ContactoDao() {
-		this.connection = new ConnectionFactory().getConnection();
+		try {
+			this.connection = new ConnectionFactory().getConnection();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public void adiciona(Contacto contacto) {
