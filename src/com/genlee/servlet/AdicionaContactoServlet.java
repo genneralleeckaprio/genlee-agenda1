@@ -21,42 +21,42 @@ import com.genlee.dao.ContactoDao;
 import com.genlee.model.Contacto;
 
 @WebServlet("/adicionaContacto")
-public class AdicionaContactoServlet extends HttpServlet{
+public class AdicionaContactoServlet extends HttpServlet {
 
-protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-PrintWriter out = res.getWriter();
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		PrintWriter out = res.getWriter();
 
-String nome = req.getParameter("nome");
-String endereco = req.getParameter("endereco");
-String email = req.getParameter("email");
-String dataEmTexto = req.getParameter("dataNascimento");
-Calendar dataNascimento = null;
-Long telefone = Long.parseLong(req.getParameter("telefone"));
+		String nome = req.getParameter("nome");
+		String endereco = req.getParameter("endereco");
+		String email = req.getParameter("email");
+		String dataEmTexto = req.getParameter("dataNascimento");
+		Calendar dataNascimento = null;
+		Long telefone = Long.parseLong(req.getParameter("telefone"));
 
-try{
-	Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
-	dataNascimento = Calendar.getInstance();
-	dataNascimento.setTime(date);
-}catch (ParseException e) {
-	out.println("Erro de conversao da data");
-	return;
-}
+		try {
+			Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
+			dataNascimento = Calendar.getInstance();
+			dataNascimento.setTime(date);
+		} catch (ParseException e) {
+			out.println("Erro de conversao da data");
+			return;
+		}
 
-Contacto contacto = new Contacto();
-contacto.setNome(nome);
-contacto.setEndereco(endereco);
-contacto.setEmail(email);
-contacto.setDataNascimento(dataNascimento);
-contacto.setTelefone(telefone);
+		Contacto contacto = new Contacto();
+		contacto.setNome(nome);
+		contacto.setEndereco(endereco);
+		contacto.setEmail(email);
+		contacto.setDataNascimento(dataNascimento);
+		contacto.setTelefone(telefone);
 
-ContactoDao dao = new ContactoDao();
-dao.adiciona(contacto);
+		ContactoDao dao = new ContactoDao();
+		dao.adiciona(contacto);
 
-out.println("<html>");
-out.println("<body>");
-out.println("Contacto " + contacto.getNome() + " adicionado com sucesso");
-out.println("</body>");
-out.println("</html>");
-}
-	
+		out.println("<html>");
+		out.println("<body>");
+		out.println("Contacto " + contacto.getNome() + " adicionado com sucesso");
+		out.println("</body>");
+		out.println("</html>");
+	}
+
 }

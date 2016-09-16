@@ -8,15 +8,14 @@ public class TestaRemove {
 		
 		Contacto contacto = new Contacto();
 		
-		contacto.setId(2L);
+		contacto.setId(5L);
 		
 		ContactoDao dao = new ContactoDao();
 		
-		String nome = contacto.getNome();
 		
 		dao.remove(contacto);
 		
-		System.out.println("Contacto  " + nome + " eliminado");
+		System.out.println("Contacto eliminado");
 	}
 
 }
