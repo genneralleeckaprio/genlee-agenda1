@@ -9,11 +9,16 @@
 	<hr />
 	<form action="adicionaContacto" method="post">
 		
-		Nome: <input type="text" name="nome" /><br /> 
-		E-mail: <input type="text" name="email" /><br /> 
-		Endereco: <input type="text" name="endereco" /><br /> 
-		Data Nascimento: <input type="text" name="dataNascimento" /><br />
-		Telefone: <input type="text" name="telefone" /><br />
+		<label for="nomeContacto">Nome</label> 
+		<input type="text" id="nomeContacto" name="nome" /><br /> 
+		<label for="emailContacto">E-mail: </label>
+		<input type="text" id="emailContacto" name="email" /><br /> 
+		<label for="enderecoContacto">Endereco: </label>
+		<input type="text" id="enderecoContacto" name="endereco" /><br /> 
+		<label for="dataNascimentoContacto">Data Nascimento: </label>
+		<input type="text" id="dataNascimentoContacto" name="dataNascimento" /><br />
+		<label for="telefoneContacto">Telefone: </label>
+	    <input type="text" id="telefoneContacto" name="telefone" /><br />
 		
 		<input type="submit" value="GenSave" />
 	</form>
