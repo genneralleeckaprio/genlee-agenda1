@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>GenLee</title>
 </head>
 <body>
+<c:import url="cabecalho.jsp"/>
 	<h1>Adiciona Contactos</h1>
 	<hr />
 	<form action="adicionaContacto" method="post">
@@ -22,5 +24,6 @@
 		
 		<input type="submit" value="GenSave" />
 	</form>
+	<c:import url="rodape.jsp"/>
 </body>
 </html>
