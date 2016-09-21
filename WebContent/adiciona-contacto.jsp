@@ -22,7 +22,10 @@
 		<label for="enderecoContacto">Endereco: </label>
 		<input type="text" id="enderecoContacto" name="endereco" /><br /> 
 		<label for="dataNascimentoContacto">Data Nascimento: </label>
-		<cmp:campoData id="dataNascimentoContacto"/><br />
+		<input type = "text" id="dataNascimentoContacto" name ="dataNascimento" /> <br />
+		
+		<!--<cmp:campoData id="dataNascimentoContacto"/><br />  -->
+		
 		<label for="telefoneContacto">Telefone: </label>
 	    <input type="text" id="telefoneContacto" name="telefone" /><br />
 		
