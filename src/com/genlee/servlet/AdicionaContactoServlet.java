@@ -26,7 +26,7 @@ public class AdicionaContactoServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
-
+		
 		String nome = req.getParameter("nome");
 		String endereco = req.getParameter("endereco");
 		String email = req.getParameter("email");
